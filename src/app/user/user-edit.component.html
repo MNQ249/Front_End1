@@ -1,0 +1,87 @@
+<div style="background-color: #db8f15">
+  <H1 style="color: #2233a5">Profile</H1>
+  <div class="rounded" style="background-color: #db8f32; margin: 10px; padding: 10px">
+    <form novalidate [formGroup]="myReactiveForm">
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control"
+               id="email"
+               placeholder="Enter email" name="email"
+               formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label for="nin">Enter National ID Number</label>
+        <input type="number" class="form-control"
+               id="nin"
+               placeholder="Enter National ID Number" name="nin"
+               formControlName="nin">
+      </div>
+
+      <div class="form-group">
+        <label for="userName">Enter User Name</label>
+        <input type="text" class="form-control" formControlName="userName"
+               id="userName" placeholder="Enter user Name" name="userName">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control"
+               formControlName="password"
+               id="password" placeholder="Enter password" name="password">
+      </div>
+
+      <div class="form-group">
+        <label for="firstName">Enter First Name</label>
+        <input type="text" class="form-control"
+               formControlName="firstName"
+               id="firstName" placeholder="Enter First Name" name="firstName">
+      </div>
+
+
+      <div class="form-group">
+        <label for="lastName">Enter Last Name</label>
+        <input type="text" class="form-control"
+               formControlName="lastName"
+               id="lastName" placeholder="Enter Last Name" name="lastName">
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" formControlName="gender" name="gender">
+          <option value="" disabled>Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Enter Your phone number</label>
+        <input type="number" class="form-control"
+               formControlName="phone"
+               id="phone" placeholder="Enter phone number" name="phone">
+      </div>
+
+      <div class="form-group">
+        <label for="city">Enter City</label>
+        <input type="text" class="form-control"
+               formControlName="city"
+               id="city" placeholder="Enter your City" name="city">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Enter Age</label>
+        <input type="number" class="form-control"
+               formControlName="age"
+               id="age" placeholder="Enter age" name="age">
+      </div>
+
+      <button type="submit" class="btn btn-outline-success" style="margin-right: 5px"
+              (click)="onSubmit()"
+              [disabled]="!myReactiveForm.valid">Submit</button>
+
+      <button type = "submit" routerLink="/profile" class="btn btn-outline-dark">back</button>
+
+    </form>
+  </div>
+</div>

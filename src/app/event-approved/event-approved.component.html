@@ -1,0 +1,19 @@
+<div class="row" >
+  <div class="col-md-4">
+    <h2>Approved Events</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let event of events$ " class="list-group-item" (click)="getEvent(event)">
+        {{event.eventId}} - {{event.eventName}} - {{event.eventCity}}
+        <button (click)="getEvent(event)" [routerLink]="['/event/', event.eventId]" class="btn btn-outline-dark" style="float: right;">Details</button>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <!--<app-user-detail [event]="currentEvent"></app-user-detail>-->
+    <!--<app-event-detail [event$]="currentEvent"></app-event-detail>-->
+  </div>
+
+</div>
+
+

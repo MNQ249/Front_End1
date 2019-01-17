@@ -1,0 +1,41 @@
+<div *ngIf="event$" class="col-md-4">
+  <h2>Event details</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Name: {{ event$.eventName }}</li>
+    <li class="list-group-item">City: {{ event$.eventCity }}</li>
+    <li class="list-group-item">Date: {{ event$.eventDate }}</li>
+    <li class="list-group-item">Time: {{ event$.eventTime }}</li>
+    <li class="list-group-item">Capacity: {{ event$.eventMaxCapacity }}</li>
+    <li class="list-group-item" style="margin-bottom: 5px">Booked tickets: {{ event$.counter }}</li>
+  </ul>
+
+  <button *ngIf="isAdmin()" [hidden]="isApproved()" (click)="approveEvent(event$.eventId)" class="btn btn-outline-success" style="margin-right: 5px">Approve</button>
+  <button *ngIf="isAdmin()" [hidden]="!isApproved()" (click)="rejectEvent(event$.eventId)" class="btn btn-outline-warning"style="margin-right: 5px">Reject</button>
+  <button *ngIf="isUser()" (click)="book()" class="btn btn-outline-success">Book</button>
+  <button *ngIf="isOrg()" type = "submit" routerLink="/event-approved" class="btn btn-outline-dark" style="margin-right: 5px">back</button>
+  <button *ngIf="isUser()" type = "submit" routerLink="/event-approved" class="btn btn-outline-dark" style="margin-right: 5px">back</button>
+  <button *ngIf="isAdmin()" type = "submit" routerLink="/event-approved" class="btn btn-outline-dark" style="margin-right: 5px">back</button>
+
+
+
+  <div>
+    <h2>Comments:</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let comment of comments " class="list-group-item">
+        {{comment.comments}}
+      </ul>
+    </div>
+    <form [formGroup]="myForm">
+      <div class="form-group">
+        <input type="comment" class="form-control" id="inputComment"
+               placeholder="Add Comment" name="comment"
+               formControlName="comment">
+      </div>
+      <button type="submit" class="btn btn-outline-primary" (click)="addComment()">Send</button>
+    </form>
+  </div>
+</div>
+
+<div>
+
+</div>

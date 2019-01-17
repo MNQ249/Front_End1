@@ -1,0 +1,47 @@
+<div class="row" >
+  <div class="col-md-6">
+    <h2>My Tickets</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let ticket of tickets "class="list-group-item">
+        <li class="list-group-item">Ticket #: {{ ticket.ticketID }}</li>
+        <li class="list-group-item">Event Name: {{ ticket.eventName}}</li>
+        <li class="list-group-item">Date: {{ ticket.tDate }}</li>
+        <li class="list-group-item">Time: {{ ticket.eventtime }}</li>
+        <button  class="btn btn-outline-danger" (click)="cancelTicket(ticket.ticketID)">Cancel</button>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h2>Attended Tickets</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let ticket of tickets$ "class="list-group-item">
+        <li class="list-group-item">Ticket #: {{ ticket.ticketID }}</li>
+        <li class="list-group-item">Event Name: {{ ticket.eventName }}</li>
+        <div *ngIf="rated(ticket.rated)">
+          <h2>Review:</h2>
+          <form [formGroup]="myForm">
+            <div class="form-group">
+              <input type="comments" class="form-control" id="inputComment"
+                     placeholder="Add Comment" name="comments"
+                     formControlName="comments">
+            </div>
+            <div class="form-group">
+              <label for="selectRate">Rate</label>
+              <select class="form-control" id="selectRate" formControlName="rate" name="rate">
+                <option value="" disabled>Select Rate</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
+            </div>
+            <button (click)="addRate(ticket.ticketID)" [disabled]="!rated(ticket.rated)"type="submit" class="btn btn-success">Rate</button>
+          </form>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

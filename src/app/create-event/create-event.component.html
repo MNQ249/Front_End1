@@ -1,0 +1,40 @@
+<H1>Create Event</H1>
+<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myForm">
+
+
+    <div class="form-group">
+      <label for="inputEventName">Enter Event Name</label>
+      <input type="eventName" class="form-control" id="inputEventName"
+             placeholder="Enter Event Name" name="eventName"
+             formControlName="eventName">
+    </div>
+
+    <div class="form-group">
+      <label for="inputCity">Enter City</label>
+      <input type="eventCity" class="form-control" id="inputCity"
+             placeholder="Enter City" name="eventCity"
+             formControlName="eventCity">
+    </div>
+
+
+    <div class="form-group">
+      <label for="inputCapacity">Capacity</label>
+      <input type="eventMaxCapacity" class="form-control"
+             formControlName="eventMaxCapacity"
+             id="inputCapacity" placeholder="Capacity" name="eventMaxCapacity">
+    </div>
+
+    <div class="form-group">
+      <label for="eventDate">Enter Event Date</label>
+      <input type="date" class="form-control"
+             formControlName="eventDate"
+             id="eventDate" placeholder="Enter your phone number" name="eventDate">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-outline-success"
+            (click)="onSubmit()">Submit</button>
+  </form>
+</div>

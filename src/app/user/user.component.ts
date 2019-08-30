@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class UserComponent implements OnInit {
 
   user$: User[];
-  users: User[]
+  users: User[];
   currentUser: User;
 
   constructor(private route: ActivatedRoute, private userService: UserService) {}
